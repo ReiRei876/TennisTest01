@@ -76,10 +76,11 @@
 
   <script>
     // Initialize EmailJS
-    (function () {
-      emailjs.init(mnXfAd8gV6p2rvYt7); // Replace "YOUR_USER_ID" with your EmailJS user ID
-    })();
-
+(function(){
+      emailjs.init({
+        publicKey: mnXfAd8gV6p2rvYt7,
+      });
+   })();
     // Form Submission Handler
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent form from refreshing the page
