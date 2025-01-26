@@ -108,7 +108,7 @@
   <script>
     // Initialize EmailJS
     (function () {
-      emailjs.init("F4-eqrGSp0EUWcf89"); // Replace "YOUR_USER_ID" with your EmailJS user ID
+      emailjs.init('F4-eqrGSp0EUWcf89'); // Replace "YOUR_USER_ID" with your EmailJS user ID
     })();
 
     // Signup Form Submission
@@ -123,7 +123,7 @@
         email: email,
       };
 
-      emailjs.send("service_bpuzq2i", "template_mj3876g", signupParams)
+      emailjs.send('service_bpuzq2i', 'template_mj3876g', signupParams)
         .then(() => {
           alert(`Thanks for signing up, ${name}! We'll contact you at ${email}.`);
           document.getElementById('signupForm').reset();
@@ -150,7 +150,7 @@
           message: userMessage,
         };
 
-        emailjs.send("service_bpuzq2i", "template_mj3876g", chatParams)
+        emailjs.send('service_bpuzq2i', 'template_mj3876g', chatParams)
           .then(() => {
             console.log("Chat message sent!");
           })
