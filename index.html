@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tennis Signup</title>
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
   <style>
     /* Global Styles */
     body {
@@ -106,13 +106,32 @@
   </div>
 
   <script>
+    // Initialize EmailJS
+    (function () {
+      emailjs.init("REI"); // Replace "YOUR_USER_ID" with your EmailJS user ID
+    })();
+
     // Signup Form Submission
     document.getElementById('signupForm').addEventListener('submit', function (e) {
       e.preventDefault();
       const name = document.getElementById('name').value;
       const email = document.getElementById('email').value;
-      alert(`Thanks for signing up, ${name}! We'll contact you at ${email}.`);
-      document.getElementById('signupForm').reset();
+
+      // EmailJS parameters for the signup
+      const signupParams = {
+        name: name,
+        email: email,
+      };
+
+      emailjs.send("service_bpuzq2i", "template_mj3876g", signupParams)
+        .then(() => {
+          alert(`Thanks for signing up, ${name}! We'll contact you at ${email}.`);
+          document.getElementById('signupForm').reset();
+        })
+        .catch((error) => {
+          console.error("EmailJS error:", error);
+          alert("There was an error sending your signup details. Please try again.");
+        });
     });
 
     // Chat Feature
@@ -125,6 +144,20 @@
         messageElement.textContent = `You: ${userMessage}`;
         chatBox.appendChild(messageElement);
         chatBox.scrollTop = chatBox.scrollHeight;
+
+        // EmailJS parameters for the chat message
+        const chatParams = {
+          message: userMessage,
+        };
+
+        emailjs.send("service_bpuzq2i", "template_mj3876g", chatParams)
+          .then(() => {
+            console.log("Chat message sent!");
+          })
+          .catch((error) => {
+            console.error("EmailJS error:", error);
+          });
+
         document.getElementById('user-message').value = '';
       }
     }
