@@ -80,7 +80,7 @@
 <script type="text/javascript">
    (function(){
       emailjs.init({
-        publicKey: mnXfAd8gV6p2rvYt7,
+        publicKey: "mnXfAd8gV6p2rvYt7",
       });
    })();
     // Initialize EmailJS
@@ -101,7 +101,7 @@
       };
 
       // Send email via EmailJS
-      emailjs.send(service_k8c81gc, template_9gj8to6, templateParams)
+      emailjs.send("service_k8c81gc", "template_9gj8to6", templateParams)
         .then(() => {
           alert("Thank you for your message! We'll get back to you soon.");
           document.getElementById('contactForm').reset(); // Clear the form
