@@ -74,13 +74,16 @@
     </form>
   </div>
 
-  <script>
-    // Initialize EmailJS
-(function(){
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
       emailjs.init({
         publicKey: mnXfAd8gV6p2rvYt7,
       });
    })();
+    // Initialize EmailJS
     // Form Submission Handler
     document.getElementById('contactForm').addEventListener('submit', function (e) {
       e.preventDefault(); // Prevent form from refreshing the page
